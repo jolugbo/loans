@@ -6,6 +6,9 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 
+//import { Storage } from '@ionic/storage';
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
+import { IntroPage } from '../pages/intro/intro';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -13,7 +16,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    IntroPage
   ],
   imports: [
     BrowserModule,
@@ -23,11 +27,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    IntroPage
   ],
   providers: [
     StatusBar,
-    SplashScreen,
+    SplashScreen,SQLite, SQLiteObject,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
