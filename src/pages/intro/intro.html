@@ -1,18 +1,28 @@
-<!--
-  Generated template for the IntroPage page.
+<ion-content>
+  <ion-slides pager="true" parallax="true" padding>
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
+    <ion-slide>
+      <h1>Instant Loan</h1>
+      <p>Take control of your finances with a few taps on your phone.</p>
+    </ion-slide>
 
-  <ion-navbar>
-    <ion-title>Intro</ion-title>
-  </ion-navbar>
+    <ion-slide>
+      <h1>All of the features</h1>
+      <p>Instant access to affodable loans anytime anywhere</p>
+    </ion-slide>
 
-</ion-header>
+    <ion-slide>
+      <h1>Simple and Transparent</h1>
+      <p>Borrow with confidence and repay with ease.</p>
+    </ion-slide>
 
-
-<ion-content padding>
-
+  </ion-slides>
+  <div class="lower-intro">
+  <button ion-button block round color="light" (click)="navHome()">
+    SIGN IN
+  </button>
+  <p><button ion-button clear (click)="navHome()">
+    OR REGISTER A NEW ACCOUNT
+  </button></p>
+</div>
 </ion-content>

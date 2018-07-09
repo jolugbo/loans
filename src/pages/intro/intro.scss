@@ -1,3 +1,18 @@
 page-intro {
-
+    background-image: url(../../assets/imgs/bg_wood.jpg);
+    ion-slides{
+        height: 70%;
+    }
+    .lower-intro{
+        text-align: center;
+        margin: auto;
+        width: 80%;
+    }
+    .content-md {
+        color: #fff;
+        background-color: #ff57228f;
+    }
+    .swiper-pagination-bullet-active {
+        background: #fff;
+      }
 }
