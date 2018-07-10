@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import {HomePage} from '../home/home'
+import { HomePage } from '../home/home';
+import { Modal, ModalController } from 'ionic-angular';
 
 /**
  * Generated class for the IntroPage page.
@@ -18,16 +19,20 @@ import {HomePage} from '../home/home'
 export class IntroPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-        public storage:Storage) {
-    
+    public storage: Storage, private modal: ModalController) {
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad IntroPage');
   }
 
-  navHome(){
+  navHome() {
     this.storage.set('intro-done', true);
-   this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(HomePage);
+  }
+  regModal() {
+    const regPopUpPage: Modal = this.modal.create('RegistrationPage');
+    regPopUpPage.present();
   }
 }

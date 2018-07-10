@@ -1,3 +1,18 @@
 page-registration {
-
+    background-image: url(../../assets/imgs/bg_wood.jpg);
+    .content-md {
+        color: #fff;
+        background-color: #17012f94;
+    }
+    .button-md-darkButton {
+        height: 80PX;
+        margin-bottom: 20px;
+    }
+    .lower-intro{
+        margin-top: 50%;   
+    }
+    .modal-wrapper{
+        height: 70%;
+        margin-top: 25%;
+    }
 }

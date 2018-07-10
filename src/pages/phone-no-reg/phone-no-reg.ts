@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
-import { Modal, ModalController } from 'ionic-angular';
+
 /**
- * Generated class for the RegistrationPage page.
+ * Generated class for the PhoneNoRegPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,23 +10,22 @@ import { Modal, ModalController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-registration',
-  templateUrl: 'registration.html',
+  selector: 'page-phone-no-reg',
+  templateUrl: 'phone-no-reg.html',
 })
-export class RegistrationPage {
+export class PhoneNoRegPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private viewCtrl:ViewController, private modal: ModalController) {
+    private viewCtrl:ViewController) {
   }
   closeModalWthoutSlctn(){
     this.viewCtrl.dismiss();
   }
-  phoneRegModal(){
-    const regPopUpPage: Modal = this.modal.create('PhoneNoRegPage');
-    regPopUpPage.present();
-  }
+
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegistrationPage');
   }
+
 
 }
