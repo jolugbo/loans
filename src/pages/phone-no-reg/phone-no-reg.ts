@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IntroPage } from '../intro/intro';
+import { SMS } from '@ionic-native/sms';
 
 /**
  * Generated class for the PhoneNoRegPage page.
@@ -14,18 +16,22 @@ import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angula
   templateUrl: 'phone-no-reg.html',
 })
 export class PhoneNoRegPage {
-
+  phoneNo = '+234';
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private viewCtrl:ViewController) {
+    private viewCtrl: ViewController, private sms: SMS) {
   }
-  closeModalWthoutSlctn(){
+  closeModalWthoutSlctn() {
     this.viewCtrl.dismiss();
   }
+  sendSMS() {
+    this.sms.send('+234'+this.phoneNo, 'Thank you for registering with us!');
+  }
 
-  
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegistrationPage');
   }
-
+  backToIntro() {
+    this.viewCtrl.dismiss();
+  }
 
 }
