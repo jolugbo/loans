@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import { IntroPage } from '../intro/intro';
 import { SMS } from '@ionic-native/sms';
 
 /**
@@ -16,7 +15,7 @@ import { SMS } from '@ionic-native/sms';
   templateUrl: 'phone-no-reg.html',
 })
 export class PhoneNoRegPage {
-  phoneNo = '+234';
+  phoneNo = '';
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private viewCtrl: ViewController, private sms: SMS) {
   }
