@@ -12,7 +12,17 @@ import { IntroPage } from '../pages/intro/intro';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Firebase } from '@ionic-native/firebase';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
+export const firebaseConfig = {
+  apiKey: "AIzaSyA8sh1jmWPf3kQ8NZFraKvvBsPkW9nTLt8",
+  authDomain:"project-debs.firebaseapp.com",
+  databaseUrl:"https://project-debs.firebaseio.com",
+  storageBucket:"project-debs.appspot.com",
+  messageSenderId:"480774999857"
+}
 @NgModule({
   declarations: [
     MyApp,
@@ -24,6 +34,9 @@ import { Firebase } from '@ionic-native/firebase';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -34,7 +47,7 @@ import { Firebase } from '@ionic-native/firebase';
   ],
   providers: [
     StatusBar,
-    Firebase, SplashScreen, SQLite, Storage, Facebook, SMS,
+    Firebase, AngularFireModule, SplashScreen, SQLite, Storage, Facebook, SMS,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
