@@ -11,6 +11,7 @@ import { SQLite } from '@ionic-native/sqlite';
 import { IntroPage } from '../pages/intro/intro';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Firebase } from '@ionic-native/firebase';
 
 @NgModule({
   declarations: [
@@ -33,8 +34,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   providers: [
     StatusBar,
-    SplashScreen,SQLite, Storage,Facebook,SMS,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Firebase, SplashScreen, SQLite, Storage, Facebook, SMS,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }

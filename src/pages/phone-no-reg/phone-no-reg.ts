@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { SMS } from '@ionic-native/sms';
-
+import { Firebase } from '@ionic-native/firebase';
 /**
  * Generated class for the PhoneNoRegPage page.
  *
@@ -17,7 +17,7 @@ import { SMS } from '@ionic-native/sms';
 export class PhoneNoRegPage {
   phoneNo = '';
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private viewCtrl: ViewController, private sms: SMS) {
+    private viewCtrl: ViewController, private sms: SMS,private firebase: Firebase) {
   }
   closeModalWthoutSlctn() {
     this.viewCtrl.dismiss();
