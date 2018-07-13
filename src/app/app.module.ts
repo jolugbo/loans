@@ -23,6 +23,8 @@ export const firebaseConfig = {
   storageBucket:"project-debs.appspot.com",
   messageSenderId:"480774999857"
 }
+//firebase.initializeApp(firebaseConfig);
+
 @NgModule({
   declarations: [
     MyApp,

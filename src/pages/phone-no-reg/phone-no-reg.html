@@ -1,6 +1,3 @@
-
-
-
 <ion-content padding>
 
   <div class="phone-reg-wrapper">
@@ -8,15 +5,25 @@
       <button ion-button class="back-btn" small clear color="darkButton" (click)="backToIntro()">
         <ion-icon ios="ios-arrow-round-back" style="color:#141a21" md="md-arrow-round-back"> </ion-icon>&nbsp; Back
       </button>
+      <h1 class="sms-lbl">SMS Authentication</h1>
     </div>
     <ion-list>
       <ion-item>
         <ion-label color="primary">+234</ion-label>
-        <ion-input type="number" [(ngModel)]="phoneNo"placeholder="Your Phone Number"></ion-input>
+        <ion-input type="number" [(ngModel)]="phoneNo" placeholder="Your Phone Number"></ion-input>
       </ion-item>
+      <button ion-button block round color="darkButton" (click)="sendSMS()">
+        Receive SMS
+      </button>
     </ion-list>
-    <button ion-button block round color="darkButton" (click)="sendSMS()">
-      REGISTER NEW ACCOUNT
-    </button>
+    <ion-list [style.visibility]="visibility">
+      <ion-item>
+        <ion-label color="primary">Enter Code</ion-label>
+        <ion-input type="text" [(ngModel)]="code" placeholder="xxxxxx"></ion-input>
+      </ion-item>
+      <button ion-button block round color="darkButton" (click)="phoneRegAction()">
+        Verify Code
+      </button>
+    </ion-list>
   </div>
 </ion-content>

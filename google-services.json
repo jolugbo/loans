@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "480774999857",
+    "firebase_url": "https://project-debs.firebaseio.com",
+    "project_id": "project-debs",
+    "storage_bucket": "project-debs.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480774999857:android:7c36cb4b746734df",
+        "android_client_info": {
+          "package_name": "com.fractals.debs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "480774999857-mlp4bo5n1tf5hsmklggc150lihp2b5r0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fractals.debs",
+            "certificate_hash": "89f598d8a30f4efb438de456a4731daea1b4ba38"
+          }
+        },
+        {
+          "client_id": "480774999857-071jp28n5034g2pme8l3meu4ufpkldg0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdWImxlYhLVMRYf7Lz9tOgEwIzrlwdalk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "480774999857-071jp28n5034g2pme8l3meu4ufpkldg0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

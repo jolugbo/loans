@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
 import { Modal, ModalController } from 'ionic-angular';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
+import {AngularFireAuth} from 'angularfire2/auth';
 /**
  * Generated class for the RegistrationPage page.
  *
@@ -16,8 +17,9 @@ import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 })
 export class RegistrationPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-    private viewCtrl:ViewController, private modal: ModalController,private fb: Facebook) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    private afAuth: AngularFireAuth,private viewCtrl:ViewController,
+     private modal: ModalController,private fb: Facebook) {
   }
   closeModalWthoutSlctn(){
     this.viewCtrl.dismiss();
