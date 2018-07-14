@@ -12,7 +12,7 @@
         <ion-label color="primary">+234</ion-label>
         <ion-input type="number" [(ngModel)]="phoneNo" placeholder="Your Phone Number"></ion-input>
       </ion-item>
-      <button ion-button block round color="darkButton" (click)="sendSMS()">
+      <button ion-button block round color="darkButton" (click)="phoneRegAction()">
         Receive SMS
       </button>
     </ion-list>
@@ -21,7 +21,7 @@
         <ion-label color="primary">Enter Code</ion-label>
         <ion-input type="text" [(ngModel)]="code" placeholder="xxxxxx"></ion-input>
       </ion-item>
-      <button ion-button block round color="darkButton" (click)="phoneRegAction()">
+      <button ion-button block round color="darkButton" (click)="verifyCode()">
         Verify Code
       </button>
     </ion-list>

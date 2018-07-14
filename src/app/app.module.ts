@@ -5,9 +5,11 @@ import { Facebook } from '@ionic-native/facebook';
 import { SMS } from '@ionic-native/sms';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { RegistrationPage } from '../pages/registration/registration';
+import { PhoneNoRegPage } from '../pages/phone-no-reg/phone-no-reg';
 import { ListPage } from '../pages/list/list';
 import { IonicStorageModule } from '@ionic/storage';
-import { SQLite } from '@ionic-native/sqlite';
+//import { SQLite } from '@ionic-native/sqlite';
 import { IntroPage } from '../pages/intro/intro';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -15,6 +17,8 @@ import { Firebase } from '@ionic-native/firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { storage } from 'firebase/app';
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA8sh1jmWPf3kQ8NZFraKvvBsPkW9nTLt8",
@@ -30,7 +34,9 @@ export const firebaseConfig = {
     MyApp,
     HomePage,
     ListPage,
-    IntroPage
+    IntroPage,
+    RegistrationPage,
+    PhoneNoRegPage
   ],
   imports: [
     BrowserModule,
@@ -45,11 +51,13 @@ export const firebaseConfig = {
     MyApp,
     HomePage,
     ListPage,
-    IntroPage
+    IntroPage,
+    RegistrationPage,
+    PhoneNoRegPage
   ],
   providers: [
     StatusBar,
-    Firebase, AngularFireModule, SplashScreen, SQLite, Storage, Facebook, SMS,
+    Firebase, AngularFireModule, SplashScreen, Storage, Facebook, SMS,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

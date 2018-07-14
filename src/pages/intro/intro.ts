@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../home/home';
+import { RegistrationPage } from '../registration/registration';
 import { Modal, ModalController } from 'ionic-angular';
 
 /**
@@ -32,7 +33,7 @@ export class IntroPage {
     this.navCtrl.setRoot(HomePage);
   }
   regModal() {
-    const regPopUpPage: Modal = this.modal.create('RegistrationPage');
+    const regPopUpPage: Modal = this.modal.create(RegistrationPage);
     regPopUpPage.present();
   }
 }

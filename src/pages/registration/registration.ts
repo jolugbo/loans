@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angula
 import { Modal, ModalController } from 'ionic-angular';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import {AngularFireAuth} from 'angularfire2/auth';
+import * as Firebase  from 'firebase';
+import { PhoneNoRegPage } from '../phone-no-reg/phone-no-reg';
 /**
  * Generated class for the RegistrationPage page.
  *
@@ -10,7 +12,7 @@ import {AngularFireAuth} from 'angularfire2/auth';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-registration',
   templateUrl: 'registration.html',
@@ -25,7 +27,7 @@ export class RegistrationPage {
     this.viewCtrl.dismiss();
   }
   phoneRegModal(){
-    const regPopUpPage: Modal = this.modal.create('PhoneNoRegPage');
+    const regPopUpPage: Modal = this.modal.create(PhoneNoRegPage);
     regPopUpPage.present();
   }
   ionViewDidLoad() {
@@ -36,5 +38,14 @@ export class RegistrationPage {
   .then((res: FacebookLoginResponse) => console.log('Logged into Facebook!', res))
   .catch(e => console.log('Error logging into Facebook', e));
   }
-
+  connectWithFB(){
+    let provider = new firebase.auth.FacebookAuthProvider();
+    firebase.auth().signInWithRedirect(provider).then(()=>{
+      firebase.auth().getRedirectResult().then((result)=>{
+        console.log(result);
+      }).catch((error)=>{
+        console.log(error);
+      });
+    });
+  }
 }
