@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController,AlertController  } from 'ionic-angular';
 import { SMS } from '@ionic-native/sms';
 //import { Firebase } from '@ionic-native/firebase';
-import * as Firebase  from 'firebase';
+import  firebase  from 'firebase';
 import {AngularFireAuth} from 'angularfire2/auth';
 import { LoadingController } from 'ionic-angular';
 /**
@@ -25,6 +25,7 @@ export class PhoneNoRegPage {
   loading = this.loadingCtrl.create({
     content: 'Please wait...'
   });
+  public recaptchaVerifier:firebase.auth.RecaptchaVerifier;
   /*loading = this.loadingCtrl.create({
     spinner: 'hide',
     content: `
@@ -34,7 +35,7 @@ export class PhoneNoRegPage {
   });*/
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     private afAuth: AngularFireAuth,public loadingCtrl: LoadingController,
-    private viewCtrl: ViewController, private sms: SMS) {
+    private viewCtrl: ViewController, private sms: SMS, public alertCtrl:AlertController) {
   }
   closeModalWthoutSlctn() {
     this.viewCtrl.dismiss();
@@ -43,8 +44,43 @@ export class PhoneNoRegPage {
     //this.sms.send('+234'+this.phoneNo, 'Thank you for registering with us!');
   }
   phoneRegAction(){
-    this.loading.present();
-    (<any>window).FirebasePlugin.verifyPhoneNumber('+234'+this.phoneNo,60,(credential)=>{
+    const appVerifier = this.recaptchaVerifier;
+    //this.loading.present();
+    console.log(this.phoneNo)
+    firebase.auth().signInWithPhoneNumber('+234'+this.phoneNo, appVerifier)
+    .then( confirmationResult =>  {
+      // SMS sent. Prompt user to type the code from the message, then sign the
+      // user in with confirmationResult.confirm(code).
+      let prompt = this.alertCtrl.create({
+      title: 'Enter the Confirmation code',
+      inputs: [{ name: 'confirmationCode', placeholder: 'Confirmation Code' }],
+      buttons: [
+        { text: 'Cancel',
+          handler: data => { console.log('Cancel clicked'); }
+        },
+        { text: 'Send',
+          handler: data => {
+            confirmationResult.confirm(data.confirmationCode)
+              .then(function (result) {
+                // User signed in successfully.
+                console.log(result.user);
+                // ...
+              }).catch(function (error) {
+                console.log(error);
+                // User couldn't sign in (bad verification code?)
+                // ...
+              });
+          }
+        }
+      ]
+    });
+    prompt.present();
+  })
+  .catch(function (error) {
+    console.error("SMS not sent", error);
+  });
+  
+   /* (<any>window).FirebasePlugin.verifyPhoneNumber('+234'+this.phoneNo,60,(credential)=>{
       alert("SMS Sent Successfully");
       console.log(credential);
       this.verificationId = credential.verificationId;
@@ -52,7 +88,7 @@ export class PhoneNoRegPage {
       console.log(error);
     })
     this.loading.dismiss();
-    this.visibility = "visible";
+    this.visibility = "visible";*/
   }
   verifyCode() {
     this.loading.present();
@@ -65,16 +101,13 @@ export class PhoneNoRegPage {
     this.loading.dismiss();
   }
   ionViewDidLoad() {
+    this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
     console.log('ionViewDidLoad RegistrationPage');
   }
   backToIntro() {
     this.viewCtrl.dismiss();
   }
 
-
-
-
-  
   presentLoadingCustom() {
     let loading = this.loadingCtrl.create({
       spinner: 'bubbles',

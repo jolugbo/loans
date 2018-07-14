@@ -18,6 +18,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { storage } from 'firebase/app';
+import * as firebase from 'firebase';
+import { FirebaseuiProvider } from '../providers/firebaseui';
 
 
 export const firebaseConfig = {
@@ -27,8 +29,7 @@ export const firebaseConfig = {
   storageBucket:"project-debs.appspot.com",
   messageSenderId:"480774999857"
 }
-//firebase.initializeApp(firebaseConfig);
-
+firebase.initializeApp(firebaseConfig);
 @NgModule({
   declarations: [
     MyApp,
@@ -58,6 +59,7 @@ export const firebaseConfig = {
   providers: [
     StatusBar,
     Firebase, AngularFireModule, SplashScreen, Storage, Facebook, SMS,
+    FirebaseuiProvider,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

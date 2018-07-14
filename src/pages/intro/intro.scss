@@ -1,14 +1,23 @@
 page-intro {
-    background-image: url(../../assets/imgs/bg_wood.jpg);
+    /* background-image: url(../../assets/imgs/bg_wood.jpg);
     background-repeat: no-repeat;
     height: 100%; 
 
-    /* Center and scale the image nicely */
+    /* Center and scale the image nicely 
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover;*/
+        background-color: #ff57228f;
     ion-slides{
         height: 70%;
+    }
+    .slider-header{
+        margin-bottom: -30%;
+        margin-left: -40%;
+    }
+    .model-styler{
+        height: 50%;
+    margin-left: 20%;
     }
     .lower-intro{
         text-align: center;
@@ -17,7 +26,6 @@ page-intro {
     }
     .content-md {
         color: #fff;
-        background-color: #ff57228f;
     }
     .swiper-pagination-bullet-active {
         background: #fff;

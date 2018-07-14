@@ -7,17 +7,18 @@
 
  
   <ion-content padding>
-    
+      <h1 class="reg-options">Link with DEBS is easy</h1>
   <div class="lower-intro">
-    <button ion-button block round color="darkButton" (click)="phoneRegModal()">
-        <ion-icon color="secondary" class="reg-icon" ios="ios-call" md="md-call"></ion-icon>  &nbsp; &nbsp; CONNECT WITH PHONE NUMBER
-    </button>
-    <button ion-button block round color="darkButton" (click)="facebookRegModal()">
+        <button ion-button block round color="darkButton" (click)="phoneRegModal()" disabled>
+            <ion-icon color="secondary" class="reg-icon" ios="ios-call" md="md-call"></ion-icon>  &nbsp; &nbsp; CONNECT WITH PHONE NUMBER
+        </button>
+    <div id="firebaseui-auth-container"></div>
+    <!--button ion-button block round color="darkButton" (click)="facebookRegModal()">
         <ion-icon color="primary" class="reg-icon" name="logo-facebook"></ion-icon>  &nbsp; &nbsp; CONNECT WITH FACEBOOK 1 
     </button>
     <button ion-button block round color="darkButton" (click)="connectWithFB()">
         <ion-icon color="primary" class="reg-icon" name="logo-facebook"></ion-icon>  &nbsp; &nbsp; CONNECT WITH FACEBOOK 2
-    </button>
+    </button-->
     <button ion-button block round color="darkButton" (click)="loginPage()">
         <ion-icon color="light" class="reg-icon" ios="ios-help" md="md-help"></ion-icon> &nbsp; &nbsp; ALREADY REGISTERED
     </button>

@@ -1,8 +1,15 @@
 page-phone-no-reg {
-    background-image: url(../../assets/imgs/bg_wood.jpg);
+        /* background-image: url(../../assets/imgs/bg_wood.jpg);
+    background-repeat: no-repeat;
+    height: 100%; 
+
+    /* Center and scale the image nicely 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;*/
+        background-color: #ff57228f;
     .content-md {
         color: #fff;
-        background-color: #ff57228f;
     }
     .modal-wrapper{
         height: 70%;
